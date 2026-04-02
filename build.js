@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// build.js — run this before pushing: `node build.js`
+// build.js — run automatically by GitHub Action on every push
 // Scans /posts/, extracts metadata, writes posts.json
 
 const fs = require('fs');
@@ -9,36 +9,31 @@ const POSTS_DIR = path.join(__dirname, 'posts');
 const OUTPUT = path.join(__dirname, 'posts.json');
 
 function extractMeta(html, filename) {
-  // ID from filename: 01-getting-it.html → "01"
   const idMatch = filename.match(/^(\d+)/);
   const id = idMatch ? idMatch[1].padStart(2, '0') : '00';
 
-  // Title from <title> tag or <h1>
-  const titleMatch = html.match(/<title>([^<]+)<\/title>/i)
-    || html.match(/<h1[^>]*>([^<]+)<\/h1>/i);
-  const title = titleMatch ? titleMatch[1].trim() : filename.replace(/^\d+-/, '').replace(/\.html$/, '').replace(/-/g, ' ');
+  const titleMatch = html.match(/<title>([^<]+)<\/title>/i);
+  const title = titleMatch ? titleMatch[1].trim() : filename.replace(/^\d+-/, '').replace(/\.html$/, '');
 
-  // Excerpt: first <p> tag content, strip tags
-  const pMatch = html.match(/<p[^>]*>([\s\S]*?)<\/p>/i);
-  const excerpt = pMatch
-    ? pMatch[1].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim().slice(0, 200)
-    : '';
+  // Prefer <meta name="excerpt"> if present
+  const excerptMeta = html.match(/<meta\s+name=["']excerpt["']\s+content=["']([^"']+)["']/i);
+  let excerpt = excerptMeta ? excerptMeta[1] : '';
 
-  // Keywords from <meta name="keywords">
+  // Fallback: first <p> tag
+  if (!excerpt) {
+    const pMatch = html.match(/<p[^>]*>([\s\S]*?)<\/p>/i);
+    excerpt = pMatch ? pMatch[1].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim().slice(0, 200) : '';
+  }
+
   const kwMatch = html.match(/<meta\s+name=["']keywords["']\s+content=["']([^"']+)["']/i);
-  const keywords = kwMatch
-    ? kwMatch[1].split(',').map(k => k.trim().toLowerCase())
-    : [];
+  const keywords = kwMatch ? kwMatch[1].split(',').map(k => k.trim().toLowerCase()) : [];
 
-  const url = `posts/${filename}`;
-
-  return { id, title, url, excerpt, keywords };
+  return { id, title, url: `posts/${filename}`, excerpt, keywords };
 }
 
-// Read all .html files in /posts/
 const files = fs.readdirSync(POSTS_DIR)
-  .filter(f => f.endsWith('.html'))
-  .sort(); // sorts by filename, so 01- comes before 02- etc.
+  .filter(f => f.endsWith('.html') && f !== 'template.html')
+  .sort();
 
 const posts = files.map(filename => {
   const html = fs.readFileSync(path.join(POSTS_DIR, filename), 'utf8');
