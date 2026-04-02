@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POST TITLE HERE</title>
+  <meta name="keywords" content="keyword1, keyword2, keyword3, keyword4, keyword5">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1a1a1a;
+      --faint: #999;
+      --rule: #e8e8e8;
+      --bg: #fafaf8;
+      --accent: #c8401a;
+      --blue: #4169e1;
+    }
+
+    html, body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Libre Baskerville', Georgia, serif;
+    }
+
+    /* ── HEADER ── */
+    header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 2rem 3rem 1.4rem;
+      border-bottom: 1px solid var(--rule);
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      z-index: 10;
+    }
+
+    .back {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 300;
+      color: var(--faint);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      transition: color 0.15s;
+    }
+    .back:hover { color: var(--ink); }
+
+    .logo {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      font-style: italic;
+      line-height: 1.2;
+      text-align: right;
+      text-decoration: none;
+      color: var(--ink);
+    }
+
+    /* ── POST ── */
+    .post {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 4rem 2rem 8rem;
+    }
+
+    .post-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      font-weight: 300;
+      color: var(--faint);
+      letter-spacing: 0.08em;
+      margin-bottom: 2rem;
+    }
+
+    .post h1 {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 2rem;
+    }
+
+    .post p {
+      font-size: 1rem;
+      line-height: 1.75;
+      margin-bottom: 1.4rem;
+      color: var(--ink);
+    }
+
+    .post em {
+      font-style: italic;
+    }
+
+    .post strong {
+      font-weight: 700;
+    }
+
+    /* Images & diagrams */
+    .post img,
+    .post figure {
+      width: 100%;
+      margin: 2rem 0;
+      border-radius: 2px;
+    }
+
+    .post figcaption {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      color: var(--faint);
+      margin-top: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* Diagram/visual boxes */
+    .visual {
+      background: #f3f3f0;
+      border-radius: 4px;
+      padding: 2rem;
+      margin: 2rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Tweet embeds */
+    .tweet {
+      margin: 2rem 0;
+      max-width: 500px;
+    }
+
+    /* Blockquote */
+    .post blockquote {
+      border-left: 2px solid var(--rule);
+      padding-left: 1.2rem;
+      margin: 1.5rem 0;
+      color: var(--faint);
+      font-style: italic;
+    }
+
+    /* Ordered/unordered lists */
+    .post ol, .post ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .post li {
+      line-height: 1.75;
+      margin-bottom: 0.4rem;
+    }
+
+    /* ── NAV between posts ── */
+    .post-nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--rule);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--faint);
+    }
+
+    .post-nav a {
+      color: var(--blue);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="../index.html" class="back">← all posts</a>
+    <a href="../index.html" class="logo">Catching<br>Up</a>
+  </header>
+
+  <article class="post">
+    <p class="post-meta">#00 — MONTH YEAR</p>
+    <h1>POST TITLE HERE</h1>
+
+    <!-- ↓ PASTE YOUR POST CONTENT HERE ↓ -->
+
+    <p>First paragraph goes here.</p>
+
+    <!-- Example image:
+    <figure>
+      <img src="../assets/images/your-image.png" alt="description">
+    </figure>
+    -->
+
+    <!-- Example visual box:
+    <div class="visual">
+      your diagram or emoji layout here
+    </div>
+    -->
+
+    <!-- ↑ END OF POST CONTENT ↑ -->
+
+    <nav class="post-nav">
+      <span>← <a href="PREV-POST.html">#PREV — Previous Title</a></span>
+      <span><a href="NEXT-POST.html">#NEXT — Next Title</a> →</span>
+    </nav>
+
+  </article>
+
+</body>
+</html>
