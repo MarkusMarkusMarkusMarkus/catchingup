@@ -111,11 +111,10 @@
       font-family:"DM Mono",monospace; font-size:0.6rem; font-weight:300;
       color:var(--faint); letter-spacing:0.08em;
       background:none; border:none; cursor:pointer;
-      transition:opacity 0.4s; opacity:0; z-index:50;
+      transition:color 0.15s; z-index:50;
     }
     .home-btn:hover { color:var(--ink); }
     .home-btn.visible { display:block; }
-    .home-btn.shown { opacity:1; }
   </style>
 </head>
 <body>
@@ -243,7 +242,6 @@
         postArea.innerHTML = article.innerHTML;
         rightPanel.scrollTop = 0;
         homeBtn.classList.add("visible");
-        homeBtn.classList.remove("shown");
       })
       .catch(() => { postArea.innerHTML = "<p>Could not load post.</p>"; });
   }
@@ -258,12 +256,7 @@
 
   homeBtn.addEventListener("click", showSearch);
 
-  rightPanel.addEventListener("scroll", () => {
-    const nearBottom = rightPanel.scrollTop + rightPanel.clientHeight >= rightPanel.scrollHeight - 80;
-    if (nearBottom && homeBtn.classList.contains("visible")) {
-      homeBtn.classList.add("shown");
-    }
-  });
+
 
   // ── SEARCH ──
   function score(post, q) {
