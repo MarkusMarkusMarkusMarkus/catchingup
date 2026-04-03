@@ -109,12 +109,9 @@
       .shell.post-open .post-list { display:none; }
       .shell.post-open .right-panel { grid-row: 2 / -1; }
       /* Home button on mobile: inline at top of post instead of fixed overlay */
-      .home-btn.visible { 
-        position:static !important; display:block;
-        padding: 1.5rem 2rem 0;
-        font-size:0.65rem;
-        bottom:auto; right:auto;
-      }
+      .home-btn { display:none !important; }
+      .mobile-back { display:block; font-family:"DM Mono",monospace; font-size:0.65rem; font-weight:300; color:var(--faint); letter-spacing:0.08em; margin-bottom:2rem; background:none; border:none; cursor:pointer; padding:0; }
+      .mobile-back:hover { color:var(--ink); }
     }
 
     /* Home button — fixed bottom right, hidden until scrolled to end of post */
@@ -254,6 +251,14 @@
         const nav = article.querySelector("nav.post-nav");
         if (nav) nav.remove();
         postArea.innerHTML = article.innerHTML;
+        // Mobile back button
+        if (window.innerWidth <= 680) {
+          const backBtn = document.createElement("button");
+          backBtn.className = "mobile-back";
+          backBtn.textContent = "← all posts";
+          backBtn.addEventListener("click", showSearch);
+          postArea.insertBefore(backBtn, postArea.firstChild);
+        }
         rightPanel.scrollTop = 0;
         homeBtn.classList.add("visible");
       })
