@@ -1,32 +1,219 @@
 [
-  { "id": "01", "title": "Getting it", "url": "posts/01-getting-it.html", "excerpt": "The moment GenAI clicked — not as a tool but as something qualitatively different.", "keywords": ["click","moment","understand","intuition","genai","superincreasing","sequence","revelation","epiphany","finally","mathematics","exponential","feel","sense"] },
-  { "id": "02", "title": "Innovative Laggard", "url": "posts/02-innovative-laggard.html", "excerpt": "Being late to GenAI relative to your Twitter feed — but early relative to the world.", "keywords": ["adoption","curve","early","adopter","laggard","twitter","social","timing","late","ahead","behind","diffusion","innovation","technology","relative","bell curve"] },
-  { "id": "03", "title": "Becoming Unbounded", "url": "posts/03-becoming-unbounded.html", "excerpt": "When AI removes the skill bottleneck, you're no longer limited by what you can do — only by what you can imagine.", "keywords": ["skill","bottleneck","imagination","creativity","unbounded","execution","constraint","limit","free","capability","barrier","unlock","potential","vibe","code"] },
-  { "id": "04", "title": "Pixel Art Dreams", "url": "posts/04-pixel-art-dreams.html", "excerpt": "Midjourney started bleeding into my dreams. The model shapes how you see before you're even awake.", "keywords": ["dreams","freud","unconscious","sleep","perception","pixel","art","midjourney","bleed","psyche","vision","night","subconscious","see","hallucination","surreal"] },
-  { "id": "05", "title": "The Merge", "url": "posts/05-the-merge.html", "excerpt": "Failed projects combining into a natural save point. When the graveyard becomes the foundation.", "keywords": ["failure","project","save","point","merge","combine","graveyard","foundation","dead","restart","pivot","git","version","control","start","over"] },
-  { "id": "06", "title": "Bricoleur", "url": "posts/06-bricoleur.html", "excerpt": "Scraps of failed projects becoming successful ones. Making do with what's at hand.", "keywords": ["bricolage","bricoleur","making","do","scraps","repurpose","recycle","creativity","levi-strauss","anthropology","craft","hack","improvise","salvage","reuse","found","material"] },
-  { "id": "07", "title": "History of Creativity", "url": "posts/07-history-of-creativity.html", "excerpt": "Midjourney already contains the creative lineage I wanted to trace. The whole loop is already inside.", "keywords": ["creativity","history","lineage","canon","training","data","inheritance","influence","art","style","movement","loop","inside","already","contained","tradition"] },
-  { "id": "08", "title": "Seeing like a Prompter", "url": "posts/08-seeing-like-a-prompter.html", "excerpt": "I was starting to see the world as potential prompts.", "keywords": ["perception","prompt","see","world","filter","attention","awareness","midjourney","framing","describe","language","eye","look","notice","observe","lens"] },
-  { "id": "09", "title": "Oneshotting", "url": "posts/09-oneshotting.html", "excerpt": "The calibration reflex — just try the hard thing first. The cost of asking has collapsed.", "keywords": ["oneshot","calibration","reflex","easy","hard","cost","try","ask","attempt","first","boldness","prompt","edge","worst","happens"] },
-  { "id": "10", "title": "Someday/Maybe", "url": "posts/10-someday-maybe.html", "excerpt": "Dead ideas resurrected by AI. Someday/Maybe has arrived.", "keywords": ["resurrection","dead","ideas","dunkinator","someday","maybe","gtd","backlog","revival","graveyard","old","project","forgotten","list","future","retrieve"] },
-  { "id": "11", "title": "Breadcrumbs", "url": "posts/11-breadcrumbs.html", "excerpt": "Borges as proxy-executor of ideas I couldn't yet build. Now it's easy to simulate worlds.", "keywords": ["borges","proxy","executor","ideas","worlds","simulate","fiction","literature","library","babel","infinite","impossible","build","now","easy","complete"] },
-  { "id": "12", "title": "Blue Light", "url": "posts/12-blue-light.html", "excerpt": "Dreams to Midjourney to game concept to Claude mockup. The creative chain that runs through sleep.", "keywords": ["dreams","freud","blue","light","midjourney","game","mockup","claude","chain","sleep","night","vision","creative","loop","screen","entranced"] },
-  { "id": "13", "title": "A 4000 Year Run", "url": "posts/13-4000-year-run.html", "excerpt": "The canon is now finite. Everything ever written is inside the model. So I started at the beginning.", "keywords": ["canon","finite","bible","history","literature","training","data","beginning","start","ancient","text","4000","years","human","writing","contained","scripture"] },
-  { "id": "14", "title": "We Are All PMs Now", "url": "posts/14-we-are-all-pms-now.html", "excerpt": "The artist/friends/you-with-Claude reversal. I guess we are all PMs now.", "keywords": ["product","manager","pm","studio","artist","claude","creative","direction","delegate","spec","brief","employer","employee","role","reversal","manage"] },
-  { "id": "15", "title": "Emoji Sigils", "url": "posts/15-emoji-sigils.html", "excerpt": "Emojis as a prompt language. The grid is the argument.", "keywords": ["emoji","sigil","symbol","prompt","language","grid","magic","occult","icon","midjourney","shorthand","code","visual","glyph","arcane"] },
-  { "id": "16", "title": "Reading Simulator 9000", "url": "posts/16-reading-simulator.html", "excerpt": "A fictional device for the opportunity cost of finishing bad books.", "keywords": ["reading","book","opportunity","cost","fiction","simulator","quit","finish","bad","time","value","worth","sunk","fallacy","abandon"] },
-  { "id": "17", "title": "MVC", "url": "posts/17-mvc.html", "excerpt": "Borges quote. Three links. For sale: baby shoes, never worn.", "keywords": ["borges","mvc","minimum","viable","baby","shoes","hemingway","brevity","short","micro","flash","fiction","six","words","enough"] },
-  { "id": "18", "title": "Cambrian Explosion", "url": "posts/18-cambrian-explosion.html", "excerpt": "The internet was the Wild West. Then platforms flattened everything. AI is lowering the cost of making again.", "keywords": ["cambrian","explosion","internet","platform","creativity","skill","barrier","workflow","wild","west","geocities","flatten","democratize","make","cost","myspace"] },
-  { "id": "19", "title": "Single-player Mode", "url": "posts/19-single-player-mode.html", "excerpt": "A solo operator with AI can now do what previously required a small company. Pieter Levels was just early.", "keywords": ["solo","startup","agent","org","chart","single","player","pieter","levels","headcount","company","one","person","operator","replace","team","indie"] },
-  { "id": "20", "title": "Cheap Weird Things", "url": "posts/20-cheap-weird-things.html", "excerpt": "Low capital costs let you make the weird thing. Anime proved it. AI is the next step on that curve.", "keywords": ["anime","capital","cost","niche","weird","culture","avant-garde","production","cheap","japan","manga","mainstream","market","mass","indie","strange","obscure"] },
-  { "id": "21", "title": "Bespoke Software", "url": "posts/21-bespoke-software.html", "excerpt": "Why use software built for the modal user when you can build exactly what you need?", "keywords": ["bespoke","software","claude","code","obsidian","custom","modal","security","malware","extension","chrome","build","own","tool","tailored","fit"] },
-  { "id": "22", "title": "Stewie Was Wrong", "url": "posts/22-stewie-was-wrong.html", "excerpt": "What is a Midjourney prompt if not 'a pinch of this, a pinch of that'?", "keywords": ["curation","creativity","taste","archive","midjourney","family","guy","stewie","prompt","facebook","likes","personality","collection","record","memory","influence"] },
-  { "id": "23", "title": "The Prompter Is the Prompted", "url": "posts/23-prompter-prompted.html", "excerpt": "Are you prompting it for answers? Or is it prompting you for questions?", "keywords": ["prompt","feedback","loop","midjourney","reciprocal","image","question","weight","change","mind","influence","reverse","who","whom","dialogue","two-way"] },
-  { "id": "24", "title": "Dying by Inches", "url": "posts/24-dying-by-inches.html", "excerpt": "Darwin was dying by inches from not having anyone to talk to about insects. That is exactly how I felt about GenAI.", "keywords": ["darwin","community","field","note","campfire","midjourney","metis","knowledge","forum","social","talk","discuss","share","lonely","find","tribe","insects","naturalist"] },
-  { "id": "25", "title": "Imaginal Amputees", "url": "posts/25-imaginal-amputees.html", "excerpt": "For the first time in human history our imagination is not the bottleneck anymore.", "keywords": ["imagination","skill","childhood","bottleneck","amputee","execution","history","first","time","human","dream","kid","grow","up","limit","cut","down"] },
-  { "id": "26", "title": "Midjourney Gospel", "url": "posts/26-midjourney-gospel.html", "excerpt": "Ten commandments for working with generative AI. Thou shalt give grace.", "keywords": ["commandment","gospel","midjourney","non-attachment","zen","principle","grace","rule","law","religion","bible","thou","shalt","practice","discipline","detach","outcome"] },
-  { "id": "27", "title": "Original Sin", "url": "posts/27-original-sin.html", "excerpt": "Anthropic accused labs of stealing. The internet sided with the thieves. Illegal — but not immoral?", "keywords": ["anthropic","ip","copyright","training","data","deepseek","morality","theft","steal","sin","original","piracy","scrape","fair","use","illegal","immoral","portuguese"] },
-  { "id": "28", "title": "Scriptorium", "url": "posts/28-scriptorium.html", "excerpt": "Opened Aristotle's Metaphysics by accident. And then it hit me — why not?", "keywords": ["aristotle","illuminate","manuscript","scriptorium","book","design","beauty","medieval","monks","gold","vellum","pretty","pictures","philosophy","ancient","why","not"] },
-  { "id": "29", "title": "Is It Still There?", "url": "posts/29-is-it-still-there.html", "excerpt": "Every year the digital texts grow lighter and clearer. Every year the paper books grow heavier with reality.", "keywords": ["fiction","book","censorship","digital","paper","borges","lisbon","memory","truth","edit","silent","disappear","rewrite","history","incorruptible","ink","1984","orwell"] },
-  { "id": "30", "title": "Inverse Science", "url": "posts/30-inverse-science.html", "excerpt": "Classical science: observe, theorize, test, build. AI inverts this. Build, test, discover — then what?", "keywords": ["science","ai","discover","inverse","understand","emerge","method","build","test","observe","theory","hypothesis","unknown","explain","why","how","black","box"] }
+  {
+    "id": "01",
+    "title": "Getting It",
+    "url": "posts/01-getting-it.html",
+    "excerpt": "“Getting it”",
+    "keywords": []
+  },
+  {
+    "id": "02",
+    "title": "Innovative Laggard",
+    "url": "posts/02-innovative-laggard.html",
+    "excerpt": "“Innovative laggard”",
+    "keywords": []
+  },
+  {
+    "id": "03",
+    "title": "Becoming Unbounded",
+    "url": "posts/03-becoming-unbounded.html",
+    "excerpt": "“Becoming Unbounded”",
+    "keywords": []
+  },
+  {
+    "id": "04",
+    "title": "Egregores",
+    "url": "posts/04-egregores.html",
+    "excerpt": "“Egregores”",
+    "keywords": []
+  },
+  {
+    "id": "05",
+    "title": "Pixel Art Dreams",
+    "url": "posts/05-pixel-art-dreams.html",
+    "excerpt": "“Pixel Art Dreams”",
+    "keywords": []
+  },
+  {
+    "id": "06",
+    "title": "The Merge",
+    "url": "posts/06-the-merge.html",
+    "excerpt": "“The Merge”",
+    "keywords": []
+  },
+  {
+    "id": "07",
+    "title": "Bricoleur",
+    "url": "posts/07-bricoleur.html",
+    "excerpt": "“Bricoleur”",
+    "keywords": []
+  },
+  {
+    "id": "08",
+    "title": "History of Creativity",
+    "url": "posts/08-history-of-creativity.html",
+    "excerpt": "“The History of Creativity”",
+    "keywords": []
+  },
+  {
+    "id": "09",
+    "title": "Seeing like a Prompter",
+    "url": "posts/09-seeing-like-a-prompter.html",
+    "excerpt": "“Seeing like a Prompter”",
+    "keywords": []
+  },
+  {
+    "id": "10",
+    "title": "We Are All Kids Now",
+    "url": "posts/10-we-are-all-kids-now.html",
+    "excerpt": "Many years ago, this anime artist — Thomas Romain — went viral for turning his son&#39;s doodles into anime characters.",
+    "keywords": []
+  },
+  {
+    "id": "11",
+    "title": "Oneshotting",
+    "url": "posts/11-oneshotting.html",
+    "excerpt": "“Oneshotting as practice and discovery”",
+    "keywords": []
+  },
+  {
+    "id": "12",
+    "title": "Someday/Maybe",
+    "url": "posts/12-someday-maybe.html",
+    "excerpt": "“Someday/Maybe”",
+    "keywords": []
+  },
+  {
+    "id": "13",
+    "title": "Breadcrumbs",
+    "url": "posts/13-breadcrumbs.html",
+    "excerpt": "“Breadcrumbs”",
+    "keywords": []
+  },
+  {
+    "id": "14",
+    "title": "Blue Light",
+    "url": "posts/14-blue-light.html",
+    "excerpt": "“Blue light”",
+    "keywords": []
+  },
+  {
+    "id": "15",
+    "title": "A 4000 Year Run",
+    "url": "posts/15-a-4000-year-run.html",
+    "excerpt": "“The 4000 year run”",
+    "keywords": []
+  },
+  {
+    "id": "16",
+    "title": "The Studio",
+    "url": "posts/16-the-studio.html",
+    "excerpt": "“The Studio”",
+    "keywords": []
+  },
+  {
+    "id": "17",
+    "title": "Emoji Sigils",
+    "url": "posts/17-emoji-sigils.html",
+    "excerpt": "Emoji Sigils",
+    "keywords": []
+  },
+  {
+    "id": "18",
+    "title": "Reading Simulator 9000",
+    "url": "posts/18-reading-simulator-9000.html",
+    "excerpt": "As I mentioned before, I&#39;ve been reading more. Highly recommended books. But… sometimes, you just don’t know if you wanna finish, you know? They just don’t grip you. Should you continue? It’s hard to ",
+    "keywords": []
+  },
+  {
+    "id": "19",
+    "title": "MVC",
+    "url": "posts/19-mvc.html",
+    "excerpt": "“MVC”",
+    "keywords": []
+  },
+  {
+    "id": "20",
+    "title": "Cambrian Explosion",
+    "url": "posts/20-cambrian-explosion.html",
+    "excerpt": "“Cambrian Explosion”",
+    "keywords": []
+  },
+  {
+    "id": "21",
+    "title": "Single-player Mode",
+    "url": "posts/21-single-player-mode.html",
+    "excerpt": "&quot;Single-player mode&quot;",
+    "keywords": []
+  },
+  {
+    "id": "22",
+    "title": "Bespoke Software",
+    "url": "posts/22-bespoke-software.html",
+    "excerpt": "“Bespoke Software”",
+    "keywords": []
+  },
+  {
+    "id": "23",
+    "title": "Stewie Was Wrong",
+    "url": "posts/23-stewie-was-wrong.html",
+    "excerpt": "“Stewie was wrong”",
+    "keywords": []
+  },
+  {
+    "id": "24",
+    "title": "Inverse Science",
+    "url": "posts/24-inverse-science.html",
+    "excerpt": "“Inverse Science”",
+    "keywords": []
+  },
+  {
+    "id": "25",
+    "title": "The Prompter Is the Prompted",
+    "url": "posts/25-the-prompter-is-the-prompted.html",
+    "excerpt": "“The prompter is the prompted”",
+    "keywords": []
+  },
+  {
+    "id": "26",
+    "title": "Scriptorium",
+    "url": "posts/26-scriptorium.html",
+    "excerpt": "“Scriptorium”",
+    "keywords": []
+  },
+  {
+    "id": "27",
+    "title": "Dying by Inches",
+    "url": "posts/27-dying-by-inches.html",
+    "excerpt": "Dying by inches",
+    "keywords": []
+  },
+  {
+    "id": "28",
+    "title": "Imaginal Amputees",
+    "url": "posts/28-imaginal-amputees.html",
+    "excerpt": "The bottleneck is gone",
+    "keywords": []
+  },
+  {
+    "id": "29",
+    "title": "Is It Still There?",
+    "url": "posts/29-is-it-still-there.html",
+    "excerpt": "“Is it still there?” #ai-written",
+    "keywords": []
+  },
+  {
+    "id": "30",
+    "title": "Original Sin",
+    "url": "posts/30-original-sin.html",
+    "excerpt": "“Original Sin”",
+    "keywords": []
+  },
+  {
+    "id": "31",
+    "title": "Midjourney Gospel",
+    "url": "posts/31-midjourney-gospel.html",
+    "excerpt": "Midjourney Gospel",
+    "keywords": []
+  }
 ]
