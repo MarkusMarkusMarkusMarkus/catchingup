@@ -101,10 +101,19 @@
     .post-area video { width:100%; max-width:480px; max-height:300px; object-fit:cover; margin:2rem 0; border-radius:2px; display:block; }
 
     @media (max-width:680px) {
-      .shell { grid-template-columns:1fr; }
+      .shell { grid-template-columns:1fr; grid-template-rows:auto auto 1fr; }
       .post-list { border-right:none; border-bottom:1px solid var(--rule); }
       header { padding:1.6rem 2rem 1.2rem; }
       .search-area { padding:2rem; }
+      /* When a post is open on mobile: hide the nav, full-screen the post */
+      .shell.post-open .post-list { display:none; }
+      .shell.post-open .right-panel { grid-row: 2 / -1; }
+      /* Home button on mobile: inline at top of post instead of fixed overlay */
+      .home-btn.visible { 
+        position:static; display:block;
+        padding: 1.5rem 2rem 0;
+        font-size:0.65rem;
+      }
     }
 
     /* Home button — fixed bottom right, hidden until scrolled to end of post */
@@ -214,7 +223,7 @@
   function showSearch() {
     searchArea.classList.add("visible");
     postArea.classList.remove("visible");
-    
+    document.querySelector(".shell").classList.remove("post-open");
     clearNums();
     activeId = null;
     rightPanel.scrollTop = 0;
@@ -232,6 +241,7 @@
 
     postArea.innerHTML = "<p style=\"color:var(--faint);font-family:'DM Mono',monospace;font-size:0.65rem;padding:4rem 3rem;\">loading\u2026</p>";
     postArea.classList.add("visible");
+    document.querySelector(".shell").classList.add("post-open");
     rightPanel.scrollTop = 0;
 
     fetch(post.url)
