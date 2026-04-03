@@ -11,7 +11,6 @@
     :root { --ink:#1a1a1a; --faint:#999; --rule:#e8e8e8; --bg:#fafaf8; --accent:#c8401a; --blue:#4169e1; }
     html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--ink); font-family:"Libre Baskerville",Georgia,serif; }
 
-    /* 3-region grid: header spans full width, then left nav + right panel */
     .shell {
       display: grid;
       grid-template-columns: 200px 1fr;
@@ -20,20 +19,16 @@
       overflow: hidden;
     }
 
-    /* HEADER — spans both columns */
     header {
       grid-column: 1 / -1;
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-end;
+      display: flex; align-items: flex-start; justify-content: flex-end;
       padding: 2.4rem 3rem 1.6rem;
       border-bottom: 1px solid var(--rule);
     }
     .logo {
       font-family:"Libre Baskerville",serif;
       font-size:1.05rem; font-weight:700; font-style:italic;
-      line-height:1.2; text-align:right;
-      text-decoration:none; color:var(--ink);
+      line-height:1.2; text-align:right; text-decoration:none; color:var(--ink);
     }
 
     /* LEFT NAV */
@@ -41,18 +36,9 @@
       border-right: 1px solid var(--rule);
       overflow-y: auto; scrollbar-width: none;
       display: flex; flex-direction: column; align-items: center;
-      padding: 2rem 0 1rem;
+      padding: 3rem 0 1rem;
     }
     .post-list::-webkit-scrollbar { display:none; }
-    .search-btn {
-      font-family:"DM Mono",monospace; font-size:0.6rem; font-weight:300;
-      color:var(--faint); letter-spacing:0.08em;
-      background:none; border:none; cursor:pointer;
-      padding:0.3rem 0; margin-bottom:1.5rem;
-      transition:color 0.15s;
-    }
-    .search-btn:hover { color:var(--ink); }
-    .search-btn.active { color:var(--accent); }
     .post-list ul { list-style:none; display:flex; flex-direction:column; gap:0.15rem; align-items:center; }
     .post-list li a { display:block; text-decoration:none; padding:0.3rem 0; transition:opacity 0.15s; }
     .post-list li a:hover { opacity:0.5; }
@@ -69,10 +55,10 @@
     }
 
     /* RIGHT PANEL */
-    .right-panel { overflow-y:auto; scrollbar-width:none; }
+    .right-panel { overflow-y:auto; scrollbar-width:none; position:relative; }
     .right-panel::-webkit-scrollbar { display:none; }
 
-    /* Search view */
+    /* SEARCH VIEW — default landing */
     .search-area {
       display:none; flex-direction:column;
       align-items:center; justify-content:center;
@@ -98,7 +84,7 @@
     .result-card .r-excerpt { font-size:0.78rem; color:var(--faint); line-height:1.6; font-style:italic; }
     .no-results { font-family:"DM Mono",monospace; font-size:0.7rem; color:var(--faint); letter-spacing:0.05em; text-align:center; display:none; }
 
-    /* Post view */
+    /* POST VIEW */
     .post-area { display:none; padding:4rem 3rem 8rem; max-width:680px; margin:0 auto; }
     .post-area.visible { display:block; }
     .post-area .post-meta { font-family:"DM Mono",monospace; font-size:0.62rem; font-weight:300; color:var(--faint); letter-spacing:0.08em; margin-bottom:2rem; }
@@ -111,10 +97,23 @@
     .post-area figure, .post-area img { width:100%; margin:2rem 0; }
     .post-area blockquote { border-left:2px solid var(--rule); padding-left:1.2rem; margin:1.5rem 0; color:var(--faint); font-style:italic; }
 
+    /* HOME BUTTON — fixed bottom right, only shows when reading a post */
+    .home-btn {
+      display: none;
+      position: fixed; bottom: 2rem; right: 2rem;
+      font-family:"DM Mono",monospace; font-size:0.6rem; font-weight:300;
+      color:var(--faint); letter-spacing:0.08em;
+      background:none; border:none; cursor:pointer;
+      transition:color 0.15s; z-index:50;
+    }
+    .home-btn:hover { color:var(--ink); }
+    .home-btn.visible { display:block; }
+
     @media (max-width:680px) {
       .shell { grid-template-columns:1fr; }
       .post-list { border-right:none; border-bottom:1px solid var(--rule); }
       header { padding:1.6rem 2rem 1.2rem; }
+      .search-area { padding:2rem; }
     }
   </style>
 </head>
@@ -126,14 +125,13 @@
   </header>
 
   <nav class="post-list">
-    <button class="search-btn" id="searchToggle">search</button>
     <ul id="postList"></ul>
   </nav>
 
   <main class="right-panel" id="rightPanel">
     <div class="search-area visible" id="searchArea">
       <div class="search-box-wrap">
-        <input type="text" id="searchInput" placeholder="Search the field notes…" autocomplete="off">
+        <input type="text" id="searchInput" placeholder="Search the field notes&hellip;" autocomplete="off">
       </div>
       <div class="results" id="results"></div>
       <p class="no-results" id="noResults">No field notes found.</p>
@@ -142,42 +140,45 @@
   </main>
 
 </div>
+
+<button class="home-btn" id="homeBtn">#00 &nbsp;&#8617;</button>
+
 <script>
   const posts = [
-    { id:"01", title:"Getting It", url:"posts/01-getting-it.html", summary:"The moment GenAI clicked — not as a tool but as something qualitatively different. The feeling of understanding something that can’t quite be explained.", keywords:["click moment","understanding","superincreasing sequence","intuition","GenAI","getting it","revelation"] },
+    { id:"01", title:"Getting It", url:"posts/01-getting-it.html", summary:"The moment GenAI clicked \u2014 not as a tool but as something qualitatively different. The feeling of understanding something that can\u2019t quite be explained.", keywords:["click moment","understanding","superincreasing sequence","intuition","GenAI","getting it","revelation"] },
     { id:"02", title:"Innovative Laggard", url:"posts/02-innovative-laggard.html", summary:"Being late to GenAI relative to your Twitter feed but early relative to the world. The fractal nature of adoption curves.", keywords:["adoption curve","early adopter","laggard","Twitter","social graph","relative","timing"] },
-    { id:"03", title:"Becoming Unbounded", url:"posts/03-becoming-unbounded.html", summary:"When AI removes the skill bottleneck, you’re no longer limited by what you can do — only by what you can imagine.", keywords:["skill bottleneck","imagination","creativity","unbounded","execution","constraints","capability"] },
+    { id:"03", title:"Becoming Unbounded", url:"posts/03-becoming-unbounded.html", summary:"When AI removes the skill bottleneck, you\u2019re no longer limited by what you can do \u2014 only by what you can imagine.", keywords:["skill bottleneck","imagination","creativity","unbounded","execution","constraints","capability"] },
     { id:"04", title:"Egregores", url:"posts/04-egregores.html", summary:"What is a group mind, really? Using the card game The Mind as a live experiment in collective intelligence and silent coordination.", keywords:["egregore","group mind","hive","collective intelligence","cooperation","silent","tulpa","occult","meme"] },
-    { id:"05", title:"Pixel Art Dreams", url:"posts/05-pixel-art-dreams.html", summary:"Midjourney bleeding into dreams and back. The model starts shaping how you see before you’re even awake.", keywords:["dreams","freud","unconscious","sleep","perception","pixel art","midjourney","bleed","psyche","hallucination"] },
+    { id:"05", title:"Pixel Art Dreams", url:"posts/05-pixel-art-dreams.html", summary:"Midjourney bleeding into dreams and back. The model starts shaping how you see before you\u2019re even awake.", keywords:["dreams","freud","unconscious","sleep","perception","pixel art","midjourney","bleed","psyche","hallucination"] },
     { id:"06", title:"The Merge", url:"posts/06-the-merge.html", summary:"Failed projects combining into a natural save point. When the graveyard becomes the foundation.", keywords:["failure","projects","save point","merge","graveyard","foundation","hellboy","mignola"] },
-    { id:"07", title:"Bricoleur", url:"posts/07-bricoleur.html", summary:"Scraps of failed projects becoming successful ones. The French concept of making do with what’s at hand.", keywords:["bricolage","bricoleur","making do","scraps","repurpose","creativity","levi-strauss","improvise"] },
+    { id:"07", title:"Bricoleur", url:"posts/07-bricoleur.html", summary:"Scraps of failed projects becoming successful ones. The French concept of making do with what\u2019s at hand.", keywords:["bricolage","bricoleur","making do","scraps","repurpose","creativity","levi-strauss","improvise"] },
     { id:"08", title:"History of Creativity", url:"posts/08-history-of-creativity.html", summary:"Midjourney already contains the creative lineage you wanted to trace. The whole loop is already inside.", keywords:["creativity","history","lineage","canon","training data","inheritance","loop","tradition"] },
     { id:"09", title:"Seeing like a Prompter", url:"posts/09-seeing-like-a-prompter.html", summary:"Perceiving the world as potential prompts. A new perceptual filter that changes what you notice.", keywords:["perception","prompting","seeing","midjourney","filter","awareness","attention","observe"] },
-    { id:"10", title:"We Are All Kids Now", url:"posts/10-we-are-all-kids-now.html", summary:"Thomas Romain turned his kid’s doodles into anime. Now AI does that for everyone. The execution gap is closed.", keywords:["kids","children","doodle","anime","thomas romain","father","imagination","execute","play","innocent"] },
-    { id:"11", title:"Oneshotting", url:"posts/11-oneshotting.html", summary:"The calibration reflex — just try the hard thing first. The cost of asking has collapsed.", keywords:["oneshot","calibration","reflex","easy hard","cost","try","ask","attempt","boldness"] },
+    { id:"10", title:"We Are All Kids Now", url:"posts/10-we-are-all-kids-now.html", summary:"Thomas Romain turned his kid\u2019s doodles into anime. Now AI does that for everyone. The execution gap is closed.", keywords:["kids","children","doodle","anime","thomas romain","father","imagination","execute","play","innocent"] },
+    { id:"11", title:"Oneshotting", url:"posts/11-oneshotting.html", summary:"The calibration reflex \u2014 just try the hard thing first. The cost of asking has collapsed.", keywords:["oneshot","calibration","reflex","easy hard","cost","try","ask","attempt","boldness"] },
     { id:"12", title:"Someday/Maybe", url:"posts/12-someday-maybe.html", summary:"Dead ideas resurrected by AI. The Dunkinator lives. Someday/Maybe has arrived.", keywords:["resurrection","dead ideas","dunkinator","someday maybe","GTD","backlog","revival","graveyard"] },
-    { id:"13", title:"Breadcrumbs", url:"posts/13-breadcrumbs.html", summary:"Borges as proxy-executor of ideas you couldn’t yet build. AI as the reader who finally completes the text.", keywords:["Borges","ideas","execution","proxy","worlds","simulation","literature","breadcrumbs"] },
+    { id:"13", title:"Breadcrumbs", url:"posts/13-breadcrumbs.html", summary:"Borges as proxy-executor of ideas you couldn\u2019t yet build. AI as the reader who finally completes the text.", keywords:["Borges","ideas","execution","proxy","worlds","simulation","literature","breadcrumbs"] },
     { id:"14", title:"Blue Light", url:"posts/14-blue-light.html", summary:"Dreams to Midjourney to game concept to Claude mockup. The creative chain that runs through sleep.", keywords:["dreams","midjourney","game","mockup","claude","blue light","screen","zombie","entranced"] },
     { id:"15", title:"A 4000 Year Run", url:"posts/15-a-4000-year-run.html", summary:"The canon is now finite. Everything ever written is inside the model. So I started at the beginning.", keywords:["canon","literature","finite","chatgpt","reading","bible","beginning","4000 year run","classics"] },
-    { id:"16", title:"The Studio", url:"posts/16-the-studio.html", summary:"Jeff Koons doesn’t make his art — he directs it. Disappointing until you realize AI makes us all PMs now.", keywords:["studio","jeff koons","product manager","pm","artist","creative direction","factory","we are all pms now"] },
+    { id:"16", title:"The Studio", url:"posts/16-the-studio.html", summary:"Jeff Koons doesn\u2019t make his art \u2014 he directs it. Disappointing until you realize AI makes us all PMs now.", keywords:["studio","jeff koons","product manager","pm","artist","creative direction","factory","we are all pms now"] },
     { id:"17", title:"Emoji Sigils", url:"posts/17-emoji-sigils.html", summary:"Compressing entire narratives into emoji sequences. The Iliad in four rows. A new kind of literary shorthand.", keywords:["emoji","sigil","compress","story","iliad","odyssey","hamlet","symbol","bible","narrative","glyph"] },
-    { id:"18", title:"Reading Simulator 9000", url:"posts/18-reading-simulator-9000.html", summary:"The opportunity cost of finishing books you’re not sure about. A fictional device for outsourcing that decision.", keywords:["reading","simulator","book","finish","opportunity cost","guilt","taste","simulation","abandon"] },
-    { id:"19", title:"MVC", url:"posts/19-mvc.html", summary:"Minimum viable creativity. Borges, Hemingway’s baby shoes, and the question of how little is enough.", keywords:["mvc","minimum viable creativity","borges","hemingway","baby shoes","brevity","six words","enough"] },
+    { id:"18", title:"Reading Simulator 9000", url:"posts/18-reading-simulator-9000.html", summary:"The opportunity cost of finishing books you\u2019re not sure about. A fictional device for outsourcing that decision.", keywords:["reading","simulator","book","finish","opportunity cost","guilt","taste","simulation","abandon"] },
+    { id:"19", title:"MVC", url:"posts/19-mvc.html", summary:"Minimum viable creativity. Borges, Hemingway\u2019s baby shoes, and the question of how little is enough.", keywords:["mvc","minimum viable creativity","borges","hemingway","baby shoes","brevity","six words","enough"] },
     { id:"20", title:"Cambrian Explosion", url:"posts/20-cambrian-explosion.html", summary:"The internet was wild, then platforms flattened it. AI is lowering the cost of making again.", keywords:["cambrian explosion","internet","platform","creativity","skill barrier","wild west","geocities","flatten"] },
     { id:"21", title:"Single-player Mode", url:"posts/21-single-player-mode.html", summary:"A solo operator with AI can now do what previously required a small company. Pieter Levels was just early.", keywords:["solo","startup","single player","pieter levels","headcount","one person","indie","org chart"] },
     { id:"22", title:"Bespoke Software", url:"posts/22-bespoke-software.html", summary:"Why use software built for the modal user when you can build exactly what you need? Claude Code makes this real.", keywords:["bespoke software","claude code","obsidian","custom","modal user","build your own tool","tailored"] },
-    { id:"23", title:"Stewie Was Wrong", url:"posts/23-stewie-was-wrong.html", summary:"Stewie Griffin thought curation was a cop-out. But a Midjourney prompt is exactly ‘a pinch of this, a pinch of that’.", keywords:["curation","creativity","taste","archive","midjourney","family guy","stewie","pinterest","collection"] },
-    { id:"24", title:"Inverse Science", url:"posts/24-inverse-science.html", summary:"Classical science: observe, theorize, build. AI inverts this — build first, discover later. We made it without understanding it.", keywords:["science","ai","inverse","black box","emergence","hypothesis","interpretability","discover"] },
+    { id:"23", title:"Stewie Was Wrong", url:"posts/23-stewie-was-wrong.html", summary:"Stewie Griffin thought curation was a cop-out. But a Midjourney prompt is exactly \u2018a pinch of this, a pinch of that\u2019.", keywords:["curation","creativity","taste","archive","midjourney","family guy","stewie","pinterest","collection"] },
+    { id:"24", title:"Inverse Science", url:"posts/24-inverse-science.html", summary:"Classical science: observe, theorize, build. AI inverts this \u2014 build first, discover later. We made it without understanding it.", keywords:["science","ai","inverse","black box","emergence","hypothesis","interpretability","discover"] },
     { id:"25", title:"The Prompter Is the Prompted", url:"posts/25-the-prompter-is-the-prompted.html", summary:"Every image you generate in Midjourney changes what you prompt next. The tool is prompting you back.", keywords:["prompt","feedback loop","midjourney","reciprocal","dialogue","two-way","influence","reverse"] },
     { id:"26", title:"Scriptorium", url:"posts/26-scriptorium.html", summary:"Medieval monks illuminated manuscripts to make knowledge beautiful. Claude can do that now. Why not?", keywords:["aristotle","illuminated manuscript","scriptorium","medieval monks","gold","vellum","beauty","philosophy"] },
-    { id:"27", title:"Dying by Inches", url:"posts/27-dying-by-inches.html", summary:"Darwin was dying by inches without anyone to talk insects with. That’s how GenAI feels — no campfire, no community.", keywords:["darwin","community","campfire","midjourney","metis","forum","lonely","tribe","naturalist"] },
-    { id:"28", title:"Imaginal Amputees", url:"posts/28-imaginal-amputees.html", summary:"For the first time in history imagination is no longer the bottleneck. We were all imaginal amputees and didn’t know it.", keywords:["imagination","skill","childhood","bottleneck","amputee","execution","human history","dream","limit"] },
+    { id:"27", title:"Dying by Inches", url:"posts/27-dying-by-inches.html", summary:"Darwin was dying by inches without anyone to talk insects with. That\u2019s how GenAI feels \u2014 no campfire, no community.", keywords:["darwin","community","campfire","midjourney","metis","forum","lonely","tribe","naturalist"] },
+    { id:"28", title:"Imaginal Amputees", url:"posts/28-imaginal-amputees.html", summary:"For the first time in history imagination is no longer the bottleneck. We were all imaginal amputees and didn\u2019t know it.", keywords:["imagination","skill","childhood","bottleneck","amputee","execution","human history","dream","limit"] },
     { id:"29", title:"Is It Still There?", url:"posts/29-is-it-still-there.html", summary:"A fiction: digital books can be silently edited. Paper becomes incorruptible. Borges, Orwell, Lisbon.", keywords:["fiction","censorship","digital","paper","borges","lisbon","memory","truth","disappear","1984","orwell"] },
     { id:"30", title:"Original Sin", url:"posts/30-original-sin.html", summary:"Anthropic accused labs of stealing training data. The internet sided with the thieves. Illegal but not immoral?", keywords:["anthropic","ip","copyright","training data","deepseek","morality","theft","original sin","piracy"] },
     { id:"31", title:"Midjourney Gospel", url:"posts/31-midjourney-gospel.html", summary:"Ten commandments for working with generative AI. Non-attachment, grace, letting go of outcomes.", keywords:["commandment","gospel","midjourney","non-attachment","zen","grace","religion","bible","discipline","detach"] }
   ];
 
-  // Render left nav
+  // ── RENDER LEFT NAV ──
   const listEl = document.getElementById("postList");
   const published = {};
   posts.forEach(p => { published[p.id] = p; });
@@ -185,37 +186,32 @@
     const id = String(i).padStart(2, "0");
     const li = document.createElement("li");
     if (published[id]) {
-      li.innerHTML = `<a href="#" data-id="${id}"><span class="post-num" id="num-${id}">#${id}</span></a>`;
+      li.innerHTML = `<a href="#" data-id="${id}" title="${published[id].title}"><span class="post-num" id="num-${id}">#${id}</span></a>`;
     } else {
       li.innerHTML = `<span class="post-num-dead">#${id}</span>`;
     }
     listEl.appendChild(li);
   }
-  // scroll so #01 is visible at bottom
-  const navEl = document.querySelector(".post-list");
-  navEl.scrollTop = navEl.scrollHeight;
+  document.querySelector(".post-list").scrollTop = document.querySelector(".post-list").scrollHeight;
 
-  // State
+  // ── ELEMENTS ──
+  const searchArea = document.getElementById("searchArea");
+  const postArea   = document.getElementById("postArea");
+  const rightPanel = document.getElementById("rightPanel");
+  const homeBtn    = document.getElementById("homeBtn");
   let activeId = null;
-  let searchOpen = true;
-  const searchArea  = document.getElementById("searchArea");
-  const postArea    = document.getElementById("postArea");
-  const rightPanel  = document.getElementById("rightPanel");
-  const searchToggle = document.getElementById("searchToggle");
-  searchToggle.classList.add("active");
 
+  // ── HELPERS ──
   function clearNums() {
     document.querySelectorAll(".post-num").forEach(n => n.classList.remove("active"));
   }
 
-  function openSearch() {
+  function showSearch() {
     searchArea.classList.add("visible");
     postArea.classList.remove("visible");
-    searchToggle.classList.add("active");
-    searchOpen = true;
+    homeBtn.classList.remove("visible");
     clearNums();
     activeId = null;
-    document.getElementById("searchInput").focus();
     rightPanel.scrollTop = 0;
   }
 
@@ -223,14 +219,13 @@
     const post = published[id];
     if (!post) return;
     searchArea.classList.remove("visible");
-    searchToggle.classList.remove("active");
-    searchOpen = false;
+    homeBtn.classList.add("visible");
     clearNums();
     const numEl = document.getElementById("num-" + id);
     if (numEl) numEl.classList.add("active");
     activeId = id;
 
-    postArea.innerHTML = "<p style=\"color:var(--faint);font-family:'DM Mono',monospace;font-size:0.65rem;padding:4rem 3rem;\">loading…</p>";
+    postArea.innerHTML = "<p style=\"color:var(--faint);font-family:'DM Mono',monospace;font-size:0.65rem;padding:4rem 3rem;\">loading\u2026</p>";
     postArea.classList.add("visible");
     rightPanel.scrollTop = 0;
 
@@ -248,7 +243,7 @@
       .catch(() => { postArea.innerHTML = "<p>Could not load post.</p>"; });
   }
 
-  // Nav clicks
+  // ── EVENT LISTENERS ──
   listEl.addEventListener("click", e => {
     e.preventDefault();
     const a = e.target.closest("a[data-id]");
@@ -256,18 +251,9 @@
     openPost(a.dataset.id);
   });
 
-  // Search toggle
-  searchToggle.addEventListener("click", () => {
-    if (searchOpen) {
-      searchArea.classList.remove("visible");
-      searchToggle.classList.remove("active");
-      searchOpen = false;
-    } else {
-      openSearch();
-    }
-  });
+  homeBtn.addEventListener("click", showSearch);
 
-  // Search scoring
+  // ── SEARCH ──
   function score(post, q) {
     const terms = q.toLowerCase().split(/\s+/).filter(Boolean);
     let s = 0;
