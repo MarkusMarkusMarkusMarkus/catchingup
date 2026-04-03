@@ -194,10 +194,6 @@
     }
     listEl.appendChild(li);
   }
-  const li00 = document.createElement("li");
-  li00.innerHTML = `<a href="#" id="home00" title="Search"><span class="post-num">#00</span></a>`;
-  listEl.appendChild(li00);
-
   document.querySelector(".post-list").scrollTop = document.querySelector(".post-list").scrollHeight;
 
   // ── ELEMENTS ──
@@ -261,7 +257,6 @@
   });
 
   homeBtn.addEventListener("click", showSearch);
-  document.getElementById("home00").addEventListener("click", e => { e.preventDefault(); showSearch(); });
 
   rightPanel.addEventListener("scroll", () => {
     const nearBottom = rightPanel.scrollTop + rightPanel.clientHeight >= rightPanel.scrollHeight - 80;
