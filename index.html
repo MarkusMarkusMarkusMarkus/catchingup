@@ -97,24 +97,25 @@
     .post-area figure, .post-area img { width:100%; margin:2rem 0; }
     .post-area blockquote { border-left:2px solid var(--rule); padding-left:1.2rem; margin:1.5rem 0; color:var(--faint); font-style:italic; }
 
-    /* HOME BUTTON — fixed bottom right, only shows when reading a post */
-    .home-btn {
-      display: none;
-      position: fixed; bottom: 2rem; right: 2rem;
-      font-family:"DM Mono",monospace; font-size:0.6rem; font-weight:300;
-      color:var(--faint); letter-spacing:0.08em;
-      background:none; border:none; cursor:pointer;
-      transition:color 0.15s; z-index:50;
-    }
-    .home-btn:hover { color:var(--ink); }
-    .home-btn.visible { display:block; }
-
     @media (max-width:680px) {
       .shell { grid-template-columns:1fr; }
       .post-list { border-right:none; border-bottom:1px solid var(--rule); }
       header { padding:1.6rem 2rem 1.2rem; }
       .search-area { padding:2rem; }
     }
+
+    /* Home button — fixed bottom right, hidden until scrolled to end of post */
+    .home-btn {
+      display: none;
+      position: fixed; bottom: 2rem; right: 2rem;
+      font-family:"DM Mono",monospace; font-size:0.6rem; font-weight:300;
+      color:var(--faint); letter-spacing:0.08em;
+      background:none; border:none; cursor:pointer;
+      transition:opacity 0.4s; opacity:0; z-index:50;
+    }
+    .home-btn:hover { color:var(--ink); }
+    .home-btn.visible { display:block; }
+    .home-btn.shown { opacity:1; }
   </style>
 </head>
 <body>
@@ -140,6 +141,7 @@
   </main>
 
 </div>
+
 
 <button class="home-btn" id="homeBtn">#00 &nbsp;&#8617;</button>
 
@@ -192,13 +194,18 @@
     }
     listEl.appendChild(li);
   }
+  const li00 = document.createElement("li");
+  li00.innerHTML = `<a href="#" id="home00" title="Search"><span class="post-num">#00</span></a>`;
+  listEl.appendChild(li00);
+
   document.querySelector(".post-list").scrollTop = document.querySelector(".post-list").scrollHeight;
 
   // ── ELEMENTS ──
   const searchArea = document.getElementById("searchArea");
+  const homeBtn    = document.getElementById("homeBtn");
   const postArea   = document.getElementById("postArea");
   const rightPanel = document.getElementById("rightPanel");
-  const homeBtn    = document.getElementById("homeBtn");
+  
   let activeId = null;
 
   // ── HELPERS ──
@@ -209,7 +216,7 @@
   function showSearch() {
     searchArea.classList.add("visible");
     postArea.classList.remove("visible");
-    homeBtn.classList.remove("visible");
+    
     clearNums();
     activeId = null;
     rightPanel.scrollTop = 0;
@@ -219,7 +226,7 @@
     const post = published[id];
     if (!post) return;
     searchArea.classList.remove("visible");
-    homeBtn.classList.add("visible");
+    
     clearNums();
     const numEl = document.getElementById("num-" + id);
     if (numEl) numEl.classList.add("active");
@@ -239,6 +246,8 @@
         if (nav) nav.remove();
         postArea.innerHTML = article.innerHTML;
         rightPanel.scrollTop = 0;
+        homeBtn.classList.add("visible");
+        homeBtn.classList.remove("shown");
       })
       .catch(() => { postArea.innerHTML = "<p>Could not load post.</p>"; });
   }
@@ -252,6 +261,14 @@
   });
 
   homeBtn.addEventListener("click", showSearch);
+  document.getElementById("home00").addEventListener("click", e => { e.preventDefault(); showSearch(); });
+
+  rightPanel.addEventListener("scroll", () => {
+    const nearBottom = rightPanel.scrollTop + rightPanel.clientHeight >= rightPanel.scrollHeight - 80;
+    if (nearBottom && homeBtn.classList.contains("visible")) {
+      homeBtn.classList.add("shown");
+    }
+  });
 
   // ── SEARCH ──
   function score(post, q) {
