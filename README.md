@@ -1,6 +1,6 @@
 # Catching Up
 
-Field notes on GenAI. Live at [catchingup.now](https://catchingup.now)  
+Field notes on GenAI. Live at [catchingup.now](https://catchingup.now)   
 
 ## File naming
 
