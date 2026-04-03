@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Breadcrumbs</title>
+  <meta name="excerpt" content="“Breadcrumbs”">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink: #1a1a1a; --faint: #999; --rule: #e8e8e8;
+      --bg: #fafaf8; --accent: #c8401a; --blue: #4169e1;
+    }
+    html, body { background: var(--bg); color: var(--ink); font-family: 'DM Sans', sans-serif; }
+    header {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      padding: 2rem 3rem 1.4rem; border-bottom: 1px solid var(--rule);
+      position: sticky; top: 0; background: var(--bg); z-index: 10;
+    }
+    .back {
+      font-family: 'DM Mono', monospace; font-size: 0.65rem; font-weight: 300;
+      color: var(--faint); text-decoration: none; letter-spacing: 0.08em; transition: color 0.15s;
+    }
+    .back:hover { color: var(--ink); }
+    .logo {
+      font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 700;
+      font-style: italic; line-height: 1.2; text-align: right; text-decoration: none; color: var(--ink);
+    }
+    .post { max-width: 640px; margin: 0 auto; padding: 4rem 2rem 8rem; }
+    .post-meta {
+      font-family: 'DM Mono', monospace; font-size: 0.62rem; font-weight: 300;
+      color: var(--faint); letter-spacing: 0.08em; margin-bottom: 2rem;
+    }
+    .post h1 { font-size: 1.6rem; font-weight: 700; line-height: 1.25; margin-bottom: 2rem; }
+    .post p { font-size: 1rem; line-height: 1.75; margin-bottom: 1.4rem; }
+    .post p.caption {
+      font-family: 'DM Mono', monospace; font-size: 0.62rem;
+      color: var(--faint); margin-top: -1.5rem; letter-spacing: 0.05em; margin-bottom: 1.4rem;
+    }
+    .post em { font-style: italic; }
+    .post strong { font-weight: 700; }
+    .post a { color: var(--blue); text-underline-offset: 2px; }
+    .post img, .post figure { width: 100%; margin: 2rem 0; }
+    .post blockquote {
+      border-left: 2px solid var(--rule); padding-left: 1.2rem;
+      margin: 1.5rem 0; color: var(--faint); font-style: italic;
+    }
+    .post ol, .post ul { padding-left: 1.5rem; margin-bottom: 1.4rem; }
+    .post li { line-height: 1.75; margin-bottom: 0.4rem; }
+    .post-nav {
+      display: flex; justify-content: space-between; margin-top: 5rem;
+      padding-top: 2rem; border-top: 1px solid var(--rule);
+      font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--faint);
+    }
+    .post-nav a { color: var(--blue); text-decoration: underline; text-underline-offset: 2px; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="../index.html" class="back">← all posts</a>
+    <a href="../index.html" class="logo">Catching<br>Up</a>
+  </header>
+  <article class="post">
+    <p class="post-meta">#12</p>
+    <h1>Breadcrumbs</h1>
+
+    <p>“Breadcrumbs”</p>
+
+    <p>I’ve recently read Borges for the first time.</p>
+
+    <figure>
+      <img src="../assets/images/image56.png" alt="">
+    </figure>
+
+    <p>I didn’t really “get him” at first. It took me a while to understand what he was doing. I find that authors often are “worlds unto themselves” and it takes a lot of engagement before you “get them”.</p>
+
+    <p>I think I get him now.</p>
+
+    <p>I think that Borges was a victim of too many ideas and too little time. (Relatable, tbh.)</p>
+
+    <p>He just had too many ideas to execute on in a lifetime and, thus, instead of executing on them left instructions and trailheads for the future. Instead of writing books he writes book reviews of the books he’d like to see. “Here’s what I would’ve written, should I have the time…”</p>
+
+    <p>This makes a lot of sense to me as writing itself is, already, a way of <em>not </em>executing an idea.</p>
+
+    <p>You merely <em>express </em>it, leaving execution for someone else. Science fiction writers describe a future they can’t build, but would like to see. Someone else gets inspired by it and builds it. Borges just took it further by simulating writing the books themselves.</p>
+
+    <p>So: writing is a way of simulating an idea, so you don’t have to actually enact it. Books are ways of simulating <em>worlds</em>, without having to inhabit them.</p>
+
+    <p>But now it’s easy to simulate worlds.</p>
+
+    <nav class="post-nav">
+      <span>← <a href="11-prev.html">previous</a></span>
+      <span><a href="13-next.html">next</a> →</span>
+    </nav>
+  </article>
+</body>
+</html>

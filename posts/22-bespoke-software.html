@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bespoke Software</title>
+  <meta name="excerpt" content="“Bespoke Software”">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink: #1a1a1a; --faint: #999; --rule: #e8e8e8;
+      --bg: #fafaf8; --accent: #c8401a; --blue: #4169e1;
+    }
+    html, body { background: var(--bg); color: var(--ink); font-family: 'DM Sans', sans-serif; }
+    header {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      padding: 2rem 3rem 1.4rem; border-bottom: 1px solid var(--rule);
+      position: sticky; top: 0; background: var(--bg); z-index: 10;
+    }
+    .back {
+      font-family: 'DM Mono', monospace; font-size: 0.65rem; font-weight: 300;
+      color: var(--faint); text-decoration: none; letter-spacing: 0.08em; transition: color 0.15s;
+    }
+    .back:hover { color: var(--ink); }
+    .logo {
+      font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 700;
+      font-style: italic; line-height: 1.2; text-align: right; text-decoration: none; color: var(--ink);
+    }
+    .post { max-width: 640px; margin: 0 auto; padding: 4rem 2rem 8rem; }
+    .post-meta {
+      font-family: 'DM Mono', monospace; font-size: 0.62rem; font-weight: 300;
+      color: var(--faint); letter-spacing: 0.08em; margin-bottom: 2rem;
+    }
+    .post h1 { font-size: 1.6rem; font-weight: 700; line-height: 1.25; margin-bottom: 2rem; }
+    .post p { font-size: 1rem; line-height: 1.75; margin-bottom: 1.4rem; }
+    .post p.caption {
+      font-family: 'DM Mono', monospace; font-size: 0.62rem;
+      color: var(--faint); margin-top: -1.5rem; letter-spacing: 0.05em; margin-bottom: 1.4rem;
+    }
+    .post em { font-style: italic; }
+    .post strong { font-weight: 700; }
+    .post a { color: var(--blue); text-underline-offset: 2px; }
+    .post img, .post figure { width: 100%; margin: 2rem 0; }
+    .post blockquote {
+      border-left: 2px solid var(--rule); padding-left: 1.2rem;
+      margin: 1.5rem 0; color: var(--faint); font-style: italic;
+    }
+    .post ol, .post ul { padding-left: 1.5rem; margin-bottom: 1.4rem; }
+    .post li { line-height: 1.75; margin-bottom: 0.4rem; }
+    .post-nav {
+      display: flex; justify-content: space-between; margin-top: 5rem;
+      padding-top: 2rem; border-top: 1px solid var(--rule);
+      font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--faint);
+    }
+    .post-nav a { color: var(--blue); text-decoration: underline; text-underline-offset: 2px; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="../index.html" class="back">← all posts</a>
+    <a href="../index.html" class="logo">Catching<br>Up</a>
+  </header>
+  <article class="post">
+    <p class="post-meta">#21</p>
+    <h1>Bespoke Software</h1>
+
+    <p>“Bespoke Software”</p>
+
+    <p>I was talking to a friend recently that told me that something about Obsidian — a note-taking</p>
+
+    <p>system — was bothering him so he… just asked Claude Code to make a clone with the features he wanted.</p>
+
+    <figure>
+      <img src="../assets/images/image33.png" alt="">
+    </figure>
+
+    <p>And it worked! Claude (Code) oneshotted it.</p>
+
+    <p>This blew my mind. I would never think of doing this. But once I saw it done it was so obvious: why should I use someone else’s software that is built for the modal use case instead of using something customized for <em>my </em>needs?</p>
+
+    <p>And it’s not just about convenience: it’s also about safety.</p>
+
+    <figure>
+      <img src="../assets/images/image29.png" alt="">
+    </figure>
+
+    <p>https://x.com/chiefofautism/status/2038347098119422412</p>
+
+    <nav class="post-nav">
+      <span>← <a href="20-prev.html">previous</a></span>
+      <span><a href="22-next.html">next</a> →</span>
+    </nav>
+  </article>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Single-player Mode</title>
+  <meta name="excerpt" content="&quot;Single-player mode&quot;">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink: #1a1a1a; --faint: #999; --rule: #e8e8e8;
+      --bg: #fafaf8; --accent: #c8401a; --blue: #4169e1;
+    }
+    html, body { background: var(--bg); color: var(--ink); font-family: 'DM Sans', sans-serif; }
+    header {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      padding: 2rem 3rem 1.4rem; border-bottom: 1px solid var(--rule);
+      position: sticky; top: 0; background: var(--bg); z-index: 10;
+    }
+    .back {
+      font-family: 'DM Mono', monospace; font-size: 0.65rem; font-weight: 300;
+      color: var(--faint); text-decoration: none; letter-spacing: 0.08em; transition: color 0.15s;
+    }
+    .back:hover { color: var(--ink); }
+    .logo {
+      font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 700;
+      font-style: italic; line-height: 1.2; text-align: right; text-decoration: none; color: var(--ink);
+    }
+    .post { max-width: 640px; margin: 0 auto; padding: 4rem 2rem 8rem; }
+    .post-meta {
+      font-family: 'DM Mono', monospace; font-size: 0.62rem; font-weight: 300;
+      color: var(--faint); letter-spacing: 0.08em; margin-bottom: 2rem;
+    }
+    .post h1 { font-size: 1.6rem; font-weight: 700; line-height: 1.25; margin-bottom: 2rem; }
+    .post p { font-size: 1rem; line-height: 1.75; margin-bottom: 1.4rem; }
+    .post p.caption {
+      font-family: 'DM Mono', monospace; font-size: 0.62rem;
+      color: var(--faint); margin-top: -1.5rem; letter-spacing: 0.05em; margin-bottom: 1.4rem;
+    }
+    .post em { font-style: italic; }
+    .post strong { font-weight: 700; }
+    .post a { color: var(--blue); text-underline-offset: 2px; }
+    .post img, .post figure { width: 100%; margin: 2rem 0; }
+    .post blockquote {
+      border-left: 2px solid var(--rule); padding-left: 1.2rem;
+      margin: 1.5rem 0; color: var(--faint); font-style: italic;
+    }
+    .post ol, .post ul { padding-left: 1.5rem; margin-bottom: 1.4rem; }
+    .post li { line-height: 1.75; margin-bottom: 0.4rem; }
+    .post-nav {
+      display: flex; justify-content: space-between; margin-top: 5rem;
+      padding-top: 2rem; border-top: 1px solid var(--rule);
+      font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--faint);
+    }
+    .post-nav a { color: var(--blue); text-decoration: underline; text-underline-offset: 2px; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="../index.html" class="back">← all posts</a>
+    <a href="../index.html" class="logo">Catching<br>Up</a>
+  </header>
+  <article class="post">
+    <p class="post-meta">#20</p>
+    <h1>Single-player Mode</h1>
+
+    <p>"Single-player mode"</p>
+
+    <p>I’ve discussed before how companies are matryoshka dolls except instead of dolls its black boxes: the upper level gives words and money to the lower level who produce some output and so on, recursively.</p>
+
+    <p>So you end up with org charts that looks somewhat like this:</p>
+
+    <figure>
+      <img src="../assets/images/image55.png" alt="">
+    </figure>
+
+    <p>Now, company creation, too, follows a power-law: most people own zero companies. A few own one. And a tiny sliver owns many. Sure, great industrialists, Elon Musk, but I mean even in indie startup terms: just think of Pieter Levels that, some 12 years ago (<a href="https://x.com/levelsio/status/2037703173251408243?s=20">https://x.com/levelsio/status/2037703173251408243?s=20</a>), launched 12 startups in 12 months. Just him, and his laptop, all running online.</p>
+
+    <p>That logic can now be extended with agents: just substitute the human black box for the agent black box and feed it electricity instead of money.</p>
+
+    <p>A solo operator with AI can now do what previously required a small company: research, writing, customer support, data analysis, design, financial modelling, what have you.</p>
+
+    <p>Pieter was just early.</p>
+
+    <figure>
+      <img src="../assets/images/image70.png" alt="">
+    </figure>
+
+    <nav class="post-nav">
+      <span>← <a href="19-prev.html">previous</a></span>
+      <span><a href="21-next.html">next</a> →</span>
+    </nav>
+  </article>
+</body>
+</html>
