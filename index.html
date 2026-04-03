@@ -97,6 +97,18 @@
       text-underline-offset: 2px;
     }
 
+    .post-num-dead {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 300;
+      color: var(--rule);
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+      cursor: default;
+      display: block;
+      padding: 0.3rem 0;
+    }
+
     /* ── SEARCH AREA ── */
     .search-area {
       display: flex;
@@ -224,11 +236,19 @@
   function renderList() {
     const listEl = document.getElementById('postList');
     listEl.innerHTML = '';
-    [...posts].reverse().forEach(p => {
+    const published = {};
+    posts.forEach(p => { published[p.id] = p; });
+
+    for (let i = 99; i >= 1; i--) {
+      const id = String(i).padStart(2, '0');
       const li = document.createElement('li');
-      li.innerHTML = `<a href="${p.url}"><span class="post-num">#${p.id}</span></a>`;
+      if (published[id]) {
+        li.innerHTML = `<a href="${published[id].url}"><span class="post-num">#${id}</span></a>`;
+      } else {
+        li.innerHTML = `<span class="post-num-dead">#${id}</span>`;
+      }
       listEl.appendChild(li);
-    });
+    }
   }
 
   function score(post, q) {
@@ -253,6 +273,8 @@
       console.warn('Could not load posts.json — run build.js first.');
     }
     renderList();
+    const postListEl = document.querySelector('.post-list');
+    postListEl.scrollTop = postListEl.scrollHeight;
 
     const input = document.getElementById('searchInput');
     const resultsEl = document.getElementById('results');
