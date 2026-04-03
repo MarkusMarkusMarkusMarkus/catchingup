@@ -4,57 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Original Sin</title>
-  <meta name="excerpt" content="“Original Sin”">
+  <meta name="excerpt" content=""Original Sin"">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --ink: #1a1a1a; --faint: #999; --rule: #e8e8e8;
-      --bg: #fafaf8; --accent: #c8401a; --blue: #4169e1;
-    }
+    :root { --ink: #1a1a1a; --faint: #999; --rule: #e8e8e8; --bg: #fafaf8; --accent: #c8401a; --blue: #4169e1; }
     html, body { background: var(--bg); color: var(--ink); font-family: 'DM Sans', sans-serif; }
-    header {
-      display: flex; align-items: flex-start; justify-content: space-between;
-      padding: 2rem 3rem 1.4rem; border-bottom: 1px solid var(--rule);
-      position: sticky; top: 0; background: var(--bg); z-index: 10;
-    }
-    .back {
-      font-family: 'DM Mono', monospace; font-size: 0.65rem; font-weight: 300;
-      color: var(--faint); text-decoration: none; letter-spacing: 0.08em; transition: color 0.15s;
-    }
+    header { display: flex; align-items: flex-start; justify-content: space-between; padding: 2rem 3rem 1.4rem; border-bottom: 1px solid var(--rule); position: sticky; top: 0; background: var(--bg); z-index: 10; }
+    .back { font-family: 'DM Mono', monospace; font-size: 0.65rem; font-weight: 300; color: var(--faint); text-decoration: none; letter-spacing: 0.08em; transition: color 0.15s; }
     .back:hover { color: var(--ink); }
-    .logo {
-      font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 700;
-      font-style: italic; line-height: 1.2; text-align: right; text-decoration: none; color: var(--ink);
-    }
+    .logo { font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 700; font-style: italic; line-height: 1.2; text-align: right; text-decoration: none; color: var(--ink); }
     .post { max-width: 640px; margin: 0 auto; padding: 4rem 2rem 8rem; }
-    .post-meta {
-      font-family: 'DM Mono', monospace; font-size: 0.62rem; font-weight: 300;
-      color: var(--faint); letter-spacing: 0.08em; margin-bottom: 2rem;
-    }
+    .post-meta { font-family: 'DM Mono', monospace; font-size: 0.62rem; font-weight: 300; color: var(--faint); letter-spacing: 0.08em; margin-bottom: 2rem; }
     .post h1 { font-size: 1.6rem; font-weight: 700; line-height: 1.25; margin-bottom: 2rem; }
     .post p { font-size: 1rem; line-height: 1.75; margin-bottom: 1.4rem; }
-    .post p.caption {
-      font-family: 'DM Mono', monospace; font-size: 0.62rem;
-      color: var(--faint); margin-top: -1.5rem; letter-spacing: 0.05em; margin-bottom: 1.4rem;
-    }
+    .post p.caption { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: var(--faint); margin-top: -1.5rem; letter-spacing: 0.05em; margin-bottom: 1.4rem; }
     .post em { font-style: italic; }
     .post strong { font-weight: 700; }
     .post a { color: var(--blue); text-underline-offset: 2px; }
     .post img, .post figure { width: 100%; margin: 2rem 0; }
-    .post blockquote {
-      border-left: 2px solid var(--rule); padding-left: 1.2rem;
-      margin: 1.5rem 0; color: var(--faint); font-style: italic;
-    }
-    .post ol, .post ul { padding-left: 1.5rem; margin-bottom: 1.4rem; }
-    .post li { line-height: 1.75; margin-bottom: 0.4rem; }
-    .post-nav {
-      display: flex; justify-content: space-between; margin-top: 5rem;
-      padding-top: 2rem; border-top: 1px solid var(--rule);
-      font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--faint);
-    }
-    .post-nav a { color: var(--blue); text-decoration: underline; text-underline-offset: 2px; }
+    .post blockquote { border-left: 2px solid var(--rule); padding-left: 1.2rem; margin: 1.5rem 0; color: var(--faint); font-style: italic; }
   </style>
 </head>
 <body>
@@ -63,41 +33,35 @@
     <a href="../index.html" class="logo">Catching<br>Up</a>
   </header>
   <article class="post">
-    <p class="post-meta">#29</p>
+    <p class="post-meta">#30</p>
     <h1>Original Sin</h1>
 
-    <p>There’s an old Portuguese saying — “Ladrão que rouba ladrão tem 100 anos de perdão”</p>
+    <p>There's an old Portuguese saying — "Ladrão que rouba ladrão tem 100 anos de perdão" — a thief that steals from a thief deserves 100 years of forgiveness.</p>
 
-    <p>i.e. thief that steals from a thief deserves 100 years of forgiveness.</p>
-
-    <p>Back in February Anthropic sent out three tweets accusing labs of attempting to illegally distill their models.<br></p>
+    <p>Apropos of nothing, back in February, Anthropic sent out three tweets accusing labs of attempting to illegally distill their models.</p>
 
     <figure>
       <img src="../assets/images/image45.png" alt="">
     </figure>
 
-    <p>What was most striking was that the most liked responses to each of those tweets <em>all </em>sided with the attackers, following a logic from the Portuguese saying above.</p>
+    <p>What was most striking was that the most liked responses to each of those tweets <em>all</em> sided with the attackers, following a logic from the Portuguese saying above.</p>
 
     <figure>
       <img src="../assets/images/image12.png" alt="">
     </figure>
 
-    <p>I think this has never happened before: people have pushed back against companies' IP claims, but never on the grounds that the company had no moral right to what it produced <em>from the outset</em>, because of <em>how</em> it produced it.</p>
+    <p>I think this has never happened before: people have pushed back against companies' IP claims, but never on the grounds that the company had no moral right to what it produced <em>from the outset</em>, because of <em>how</em> it produced it.</p>
 
-    <p>Illegal But not immoral?</p>
+    <p>Illegal. But not immoral?</p>
   </article>
 
 <script>
   if (location.search.includes('edit')) {
     document.documentElement.setAttribute('data-edit', '');
-
-    // Make text nodes editable
     document.querySelectorAll('article.post h1, article.post p, article.post blockquote').forEach(el => {
       el.contentEditable = 'true';
       el.spellcheck = false;
     });
-
-    // Inject editor styles
     const style = document.createElement('style');
     style.textContent = `
       [data-edit] body { padding-bottom: 8rem; }
@@ -107,41 +71,21 @@
       [data-edit] p.caption { outline: 1px dashed #ccc; outline-offset: 2px; }
       [data-edit] p.caption:hover { background: rgba(200,64,26,0.05) !important; }
       [data-edit] p.caption:focus { background: rgba(200,64,26,0.08) !important; }
-
-      .edit-bar {
-        position: fixed; bottom: 0; left: 0; right: 0;
-        background: #1a1a1a; color: #fafaf8;
-        display: flex; align-items: center; justify-content: space-between;
-        padding: 0.8rem 2rem; gap: 1rem; z-index: 100;
-        font-family: 'DM Mono', monospace; font-size: 0.65rem;
-      }
+      .edit-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #1a1a1a; color: #fafaf8; display: flex; align-items: center; justify-content: space-between; padding: 0.8rem 2rem; gap: 1rem; z-index: 100; font-family: 'DM Mono', monospace; font-size: 0.65rem; }
       .edit-bar span { color: #999; letter-spacing: 0.06em; }
-      .edit-bar button {
-        font-family: 'DM Mono', monospace; font-size: 0.65rem;
-        background: none; border: 1px solid #555; color: #fafaf8;
-        padding: 0.35rem 0.8rem; cursor: pointer; letter-spacing: 0.06em;
-        transition: border-color 0.15s;
-      }
+      .edit-bar button { font-family: 'DM Mono', monospace; font-size: 0.65rem; background: none; border: 1px solid #555; color: #fafaf8; padding: 0.35rem 0.8rem; cursor: pointer; letter-spacing: 0.06em; transition: border-color 0.15s; }
       .edit-bar button:hover { border-color: #fafaf8; }
       .edit-bar .copied { color: #4caf50 !important; border-color: #4caf50 !important; }
     `;
     document.head.appendChild(style);
-
-    // Edit bar
     const bar = document.createElement('div');
     bar.className = 'edit-bar';
-    bar.innerHTML = `
-      <span>edit mode — click any text to edit &nbsp;·&nbsp; <span style="color:#c8401a">dashed border = caption</span></span>
-      <button id="copyBtn">copy html</button>
-    `;
+    bar.innerHTML = `<span>edit mode — click any text to edit &nbsp;·&nbsp; <span style="color:#c8401a">dashed border = caption</span></span><button id="copyBtn">copy html</button>`;
     document.body.appendChild(bar);
-
     document.getElementById('copyBtn').addEventListener('click', () => {
-      // Serialise the article, stripping contenteditable attrs
       const article = document.querySelector('article.post').cloneNode(true);
       article.querySelectorAll('[contenteditable]').forEach(el => el.removeAttribute('contenteditable'));
-      const doctype = '<!DOCTYPE html>\n';
-      const full = doctype + document.documentElement.outerHTML
+      const full = '<!DOCTYPE html>\n' + document.documentElement.outerHTML
         .replace(document.querySelector('article.post').outerHTML, article.outerHTML)
         .replace(/ data-edit=""/, '');
       navigator.clipboard.writeText(full).then(() => {

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bricoleur</title>
-  <meta name="excerpt" content="“Bricoleur”">
+  <meta name="excerpt" content=""Bricoleur"">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
   <style>
@@ -49,12 +49,6 @@
     }
     .post ol, .post ul { padding-left: 1.5rem; margin-bottom: 1.4rem; }
     .post li { line-height: 1.75; margin-bottom: 0.4rem; }
-    .post-nav {
-      display: flex; justify-content: space-between; margin-top: 5rem;
-      padding-top: 2rem; border-top: 1px solid var(--rule);
-      font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--faint);
-    }
-    .post-nav a { color: var(--blue); text-decoration: underline; text-underline-offset: 2px; }
   </style>
 </head>
 <body>
@@ -66,13 +60,13 @@
     <p class="post-meta">#07</p>
     <h1>Bricoleur</h1>
 
-    <p>We’ve talked a bit about my first two Midjourney projects.</p>
+    <p>We've talked a bit about my first two Midjourney projects.</p>
 
-    <p>Although those mostly  failed, they did end up generating something useful — almost by mistake.</p>
+    <p>Although those mostly failed, they did end up generating something useful — almost by mistake.</p>
 
-    <p>As I generated sometimes I’d generate interesting images or have random thoughts. I put those to be generated as well. In doing so I ended  up with characters that didn’t fit what I was making, but that could fit something else. Maybe their own comics?</p>
+    <p>As I generated sometimes I'd generate interesting images or have random thoughts. I put those to be generated as well. In doing so I ended up with characters that didn't fit what I was making, but that could fit something else. Maybe their own comics?</p>
 
-    <p>I had already played with making comics in 2024 and 2025 with ChatGPT. Character consistency was a huge problem. It still is, for Midjourney. But for a few panels it doesn’t really make a difference.</p>
+    <p>I had already played with making comics in 2024 and 2025 with ChatGPT. Character consistency was a huge problem. It still is, for Midjourney. But for a few panels it doesn't really make a difference.</p>
 
     <figure>
       <img src="../assets/images/image21.jpg" alt="">
@@ -82,7 +76,9 @@
       <img src="../assets/images/image18.png" alt="">
     </figure>
 
-    <p class="caption">I already had the workflow, from back in 2024: just put them into Google Slides to make the panels and voilá!</p>
+    <p class="caption">ChatGPT, 2024.</p>
+
+    <p>I already had the workflow, from back in 2024: just put them into Google Slides to make the panels and voilá!</p>
 
     <figure>
       <img src="../assets/images/image69.png" alt="">
@@ -96,7 +92,9 @@
       <img src="../assets/images/image80.png" alt="">
     </figure>
 
-    <p>In entrepreneurship “bricolage” is the idea of building from whatever is at hand. As opposed to an engineer who designs from scratch with the right tools.</p>
+    <p class="caption">Midjourney + Google Slides 2026.</p>
+
+    <p>In entrepreneurship "bricolage" is the idea of building from whatever is at hand. As opposed to an engineer who designs from scratch with the right tools.</p>
 
     <p>I was trying to be an engineer — with my overengineered projects — when what actually worked was to shift my mindset — to become a <em>bricoleur.</em></p>
 
@@ -110,14 +108,10 @@
 <script>
   if (location.search.includes('edit')) {
     document.documentElement.setAttribute('data-edit', '');
-
-    // Make text nodes editable
     document.querySelectorAll('article.post h1, article.post p, article.post blockquote').forEach(el => {
       el.contentEditable = 'true';
       el.spellcheck = false;
     });
-
-    // Inject editor styles
     const style = document.createElement('style');
     style.textContent = `
       [data-edit] body { padding-bottom: 8rem; }
@@ -127,41 +121,21 @@
       [data-edit] p.caption { outline: 1px dashed #ccc; outline-offset: 2px; }
       [data-edit] p.caption:hover { background: rgba(200,64,26,0.05) !important; }
       [data-edit] p.caption:focus { background: rgba(200,64,26,0.08) !important; }
-
-      .edit-bar {
-        position: fixed; bottom: 0; left: 0; right: 0;
-        background: #1a1a1a; color: #fafaf8;
-        display: flex; align-items: center; justify-content: space-between;
-        padding: 0.8rem 2rem; gap: 1rem; z-index: 100;
-        font-family: 'DM Mono', monospace; font-size: 0.65rem;
-      }
+      .edit-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #1a1a1a; color: #fafaf8; display: flex; align-items: center; justify-content: space-between; padding: 0.8rem 2rem; gap: 1rem; z-index: 100; font-family: 'DM Mono', monospace; font-size: 0.65rem; }
       .edit-bar span { color: #999; letter-spacing: 0.06em; }
-      .edit-bar button {
-        font-family: 'DM Mono', monospace; font-size: 0.65rem;
-        background: none; border: 1px solid #555; color: #fafaf8;
-        padding: 0.35rem 0.8rem; cursor: pointer; letter-spacing: 0.06em;
-        transition: border-color 0.15s;
-      }
+      .edit-bar button { font-family: 'DM Mono', monospace; font-size: 0.65rem; background: none; border: 1px solid #555; color: #fafaf8; padding: 0.35rem 0.8rem; cursor: pointer; letter-spacing: 0.06em; transition: border-color 0.15s; }
       .edit-bar button:hover { border-color: #fafaf8; }
       .edit-bar .copied { color: #4caf50 !important; border-color: #4caf50 !important; }
     `;
     document.head.appendChild(style);
-
-    // Edit bar
     const bar = document.createElement('div');
     bar.className = 'edit-bar';
-    bar.innerHTML = `
-      <span>edit mode — click any text to edit &nbsp;·&nbsp; <span style="color:#c8401a">dashed border = caption</span></span>
-      <button id="copyBtn">copy html</button>
-    `;
+    bar.innerHTML = `<span>edit mode — click any text to edit &nbsp;·&nbsp; <span style="color:#c8401a">dashed border = caption</span></span><button id="copyBtn">copy html</button>`;
     document.body.appendChild(bar);
-
     document.getElementById('copyBtn').addEventListener('click', () => {
-      // Serialise the article, stripping contenteditable attrs
       const article = document.querySelector('article.post').cloneNode(true);
       article.querySelectorAll('[contenteditable]').forEach(el => el.removeAttribute('contenteditable'));
-      const doctype = '<!DOCTYPE html>\n';
-      const full = doctype + document.documentElement.outerHTML
+      const full = '<!DOCTYPE html>\n' + document.documentElement.outerHTML
         .replace(document.querySelector('article.post').outerHTML, article.outerHTML)
         .replace(/ data-edit=""/, '');
       navigator.clipboard.writeText(full).then(() => {
