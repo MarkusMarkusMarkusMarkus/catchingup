@@ -125,6 +125,7 @@
     }
     .home-btn:hover { color:var(--ink); }
     .home-btn.visible { display:block; }
+    .mobile-back { display:none; }
   </style>
 </head>
 <body>
@@ -251,14 +252,11 @@
         const nav = article.querySelector("nav.post-nav");
         if (nav) nav.remove();
         postArea.innerHTML = article.innerHTML;
-        // Mobile back button
-        if (window.innerWidth <= 680) {
-          const backBtn = document.createElement("button");
-          backBtn.className = "mobile-back";
-          backBtn.textContent = "← all posts";
-          backBtn.addEventListener("click", showSearch);
-          postArea.insertBefore(backBtn, postArea.firstChild);
-        }
+        const backBtn = document.createElement("button");
+        backBtn.className = "mobile-back";
+        backBtn.textContent = "← all posts";
+        backBtn.addEventListener("click", showSearch);
+        postArea.insertBefore(backBtn, postArea.firstChild);
         rightPanel.scrollTop = 0;
         homeBtn.classList.add("visible");
       })
