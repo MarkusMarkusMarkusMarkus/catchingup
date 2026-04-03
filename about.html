@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Catching Up</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink: #1a1a1a; --faint: #999; --rule: #e8e8e8;
+      --bg: #fafaf8; --accent: #c8401a; --blue: #4169e1;
+    }
+    html, body { background: var(--bg); color: var(--ink); font-family: 'DM Sans', sans-serif; }
+    header {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      padding: 2rem 3rem 1.4rem; border-bottom: 1px solid var(--rule);
+      position: sticky; top: 0; background: var(--bg); z-index: 10;
+    }
+    .back {
+      font-family: 'DM Mono', monospace; font-size: 0.65rem; font-weight: 300;
+      color: var(--faint); text-decoration: none; letter-spacing: 0.08em; transition: color 0.15s;
+    }
+    .back:hover { color: var(--ink); }
+    .logo {
+      font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 700;
+      font-style: italic; line-height: 1.2; text-align: right; text-decoration: none; color: var(--ink);
+    }
+    .post { max-width: 640px; margin: 0 auto; padding: 4rem 2rem 8rem; }
+    .post h1 { font-size: 1.6rem; font-weight: 700; line-height: 1.25; margin-bottom: 2rem; }
+    .post p { font-size: 1rem; line-height: 1.75; margin-bottom: 1.4rem; }
+    .post figure { width: 100%; margin: 2.5rem 0 0; }
+    .post figure img { width: 100%; display: block; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="/index.html" class="back">← all posts</a>
+    <a href="/index.html" class="logo">Catching<br>Up</a>
+  </header>
+  <article class="post">
+    <p>Field notes on GenAI from someone who can't stop playing with it.</p>
+    <figure>
+      <img src="assets/images/about.png" alt="">
+    </figure>
+  </article>
+</body>
+</html>
