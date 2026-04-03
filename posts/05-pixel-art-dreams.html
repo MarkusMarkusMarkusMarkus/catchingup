@@ -122,5 +122,72 @@
 
     <p class="caption">Midjourney.</p>
   </article>
+
+<script>
+  if (location.search.includes('edit')) {
+    document.documentElement.setAttribute('data-edit', '');
+
+    // Make text nodes editable
+    document.querySelectorAll('article.post h1, article.post p, article.post blockquote').forEach(el => {
+      el.contentEditable = 'true';
+      el.spellcheck = false;
+    });
+
+    // Inject editor styles
+    const style = document.createElement('style');
+    style.textContent = `
+      [data-edit] body { padding-bottom: 8rem; }
+      [data-edit] [contenteditable] { outline: none; }
+      [data-edit] [contenteditable]:hover { background: rgba(65,105,225,0.04); border-radius: 2px; }
+      [data-edit] [contenteditable]:focus { background: rgba(65,105,225,0.07); border-radius: 2px; }
+      [data-edit] p.caption { outline: 1px dashed #ccc; outline-offset: 2px; }
+      [data-edit] p.caption:hover { background: rgba(200,64,26,0.05) !important; }
+      [data-edit] p.caption:focus { background: rgba(200,64,26,0.08) !important; }
+
+      .edit-bar {
+        position: fixed; bottom: 0; left: 0; right: 0;
+        background: #1a1a1a; color: #fafaf8;
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 0.8rem 2rem; gap: 1rem; z-index: 100;
+        font-family: 'DM Mono', monospace; font-size: 0.65rem;
+      }
+      .edit-bar span { color: #999; letter-spacing: 0.06em; }
+      .edit-bar button {
+        font-family: 'DM Mono', monospace; font-size: 0.65rem;
+        background: none; border: 1px solid #555; color: #fafaf8;
+        padding: 0.35rem 0.8rem; cursor: pointer; letter-spacing: 0.06em;
+        transition: border-color 0.15s;
+      }
+      .edit-bar button:hover { border-color: #fafaf8; }
+      .edit-bar .copied { color: #4caf50 !important; border-color: #4caf50 !important; }
+    `;
+    document.head.appendChild(style);
+
+    // Edit bar
+    const bar = document.createElement('div');
+    bar.className = 'edit-bar';
+    bar.innerHTML = `
+      <span>edit mode — click any text to edit &nbsp;·&nbsp; <span style="color:#c8401a">dashed border = caption</span></span>
+      <button id="copyBtn">copy html</button>
+    `;
+    document.body.appendChild(bar);
+
+    document.getElementById('copyBtn').addEventListener('click', () => {
+      // Serialise the article, stripping contenteditable attrs
+      const article = document.querySelector('article.post').cloneNode(true);
+      article.querySelectorAll('[contenteditable]').forEach(el => el.removeAttribute('contenteditable'));
+      const doctype = '<!DOCTYPE html>\n';
+      const full = doctype + document.documentElement.outerHTML
+        .replace(document.querySelector('article.post').outerHTML, article.outerHTML)
+        .replace(/ data-edit=""/, '');
+      navigator.clipboard.writeText(full).then(() => {
+        const btn = document.getElementById('copyBtn');
+        btn.textContent = 'copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'copy html'; btn.classList.remove('copied'); }, 2000);
+      });
+    });
+  }
+</script>
 </body>
 </html>
