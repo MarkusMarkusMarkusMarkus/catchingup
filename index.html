@@ -110,9 +110,10 @@
       .shell.post-open .right-panel { grid-row: 2 / -1; }
       /* Home button on mobile: inline at top of post instead of fixed overlay */
       .home-btn.visible { 
-        position:static; display:block;
+        position:static !important; display:block;
         padding: 1.5rem 2rem 0;
         font-size:0.65rem;
+        bottom:auto; right:auto;
       }
     }
 
